@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./js/database.js"></script>
+    <script defer src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Playtendo - Jogos Digitais</title>
+</head>
+<body>
+    <header>
+        <section class="sectionHeader container">
+            <figure class="figureLogo">
+                <img class="logoLoja" src="./img/playtendo_logo.png" alt="Playtendo" title="Logo da Playtendo">
+            </figure>
+            <nav class="navHeader">
+                <button class="buttonNav">Todos</button>
+                <button class="buttonNav">Mario</button>
+                <button class="buttonNav">Zelda</button>
+                <button class="buttonNav">Pokemon</button>
+            </nav>
+        </section>
+    </header>
+    <main class="container">
+        <section class="sectionVitrine">
+            <ul class="ulVitrine">
+                <li class="cardVitrine">
+                    <figure class="figureCard">
+                        <img class="imgCard" src="./img/zelda_breath_01.webp" alt="Zelda - BOTW">
+                    </figure>
+                    <div class="divCardInfo">
+                        <span class="categoria">Zelda</span>
+                        <h2 class="titleName">The Legend of Zelda: Breath of the Wild</h2>
+                        <p class="descriptionGame">O novo jogo da famosa série que veio para romper barreiras.</p>
+                        <h4 class="price">R$ 299,00</h4>
+                        <button class="adicionarAoCarrinho">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <aside>
+            <div class="pesquisaVitrine">
+                <input class="inputPesquisar" type="search" name="pesquisar" id="pesquisar" placeholder="Digite o nome do jogo">
+                <button class="btnPesquisar">Pesquisar</button>
+            </div>
+            <h2 class="h2CarrinhoDeCompras">Carrinho de compras</h2>
+            <ul class="ulCarrinho">
+                <li class="liCarrinho">
+                    <figure class="figureImgCarrinho">
+                        <img class="imgCarrinho" src="./img/zelda_breath_01.webp" alt="Zelda - BOTW">
+                    </figure>
+                    <h3 class="titleGameCarrinho">The Legend of Zelda: Breath of the Wild</h3>
+                    <h4 class="priceGameCarrinho">R$ 299,00</h4>
+                </li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <figure class="figureFooter">
+            <img class="logoFooter" src="./img/playtendo_logo.png" alt="Logo da Playtendo">
+        </figure>
+        <div class="divRedes">
+            <h4 class="h4Redes">Nossas redes</h4>
+            <div class="divIconRedes">
+                <a href="#">
+                    <img class="imgFacebookLogo" src="./img/playtendo_facebook.png" alt="Link Facebook Playtendo">
+                </a>
+                <a href="#">
+                    <img class="imgInstagramLogo" src="./img/playtendo_instagram.png" alt="Link Instagram Playtendo">
+                </a>
+                
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
