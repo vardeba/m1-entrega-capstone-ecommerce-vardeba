@@ -56,7 +56,7 @@ header {
 
 .buttonNav {
     color: #484848;
-    width: 70px;
+    width: 80px;
     background-color: #ffffff;
     font-size: 20px;
 }
@@ -70,6 +70,7 @@ header {
 main {
     display: flex;
     justify-content: space-between;
+    /* height: 100vh; */
 }
 
 .sectionVitrine {
@@ -90,24 +91,30 @@ main {
     display: flex;
     margin: 15px 5px;
     flex-direction: column;
-    border: 2px solid #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 10px;
     justify-content: space-between;
     background-color: #f1f1f1;
 }
 
 .cardVitrine:hover {
-    border: 2px solid #000000;
+    border: 1px solid rgb(230, 0, 18);
 }
 
 .figureCard {
     width: 100%;
     border-radius: 10px 10px 0 0;
+    overflow: hidden;
 }
 
 .imgCard {
     width: 100%;
     border-radius: 10px 10px 0 0;
+}
+
+.imgCard:hover {
+    width: 101%;
+    transition: 0.3s ease;
 }
 
 .divCardInfo {
@@ -130,12 +137,14 @@ border-radius: 5px;
 
 .titleName {
     font-size: 20px;
+    height: 50px;
     margin-top: 10px;
     color: #484848;
 }
 
 .descriptionGame {
     font-size: 14px;
+    height: 50px;
     margin-top: 10px;
     color: #484848;
 }
@@ -171,7 +180,7 @@ aside {
     height: 40px;
     display: flex;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin: 15px 0 30px 0;
 }
 
 .inputPesquisar {
@@ -222,16 +231,20 @@ aside {
 }
 
 .liCarrinho {
-    width: 100%;
+    width: 98%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 60px;
     padding:5px 10px;
-    margin: 10px 0;
-    background-color: #dddcdc;
+    margin: 10px auto;
+    background-color: #ffffff;
     border-radius: 10px;
+    border: 1px solid #ffffff;
+}
 
+.liCarrinho:hover {
+    border: 1px solid rgb(230, 0, 18);
 }
 
 .figureImgCarrinho {
@@ -252,11 +265,13 @@ aside {
     width: 150px;
     font-size: 12px;
     padding: 0 10px;
+    color: #484848;
 }
 
 .priceGameCarrinho {
     font-size: 12px;
     padding: 0 10px;
+    color: #484848;
 }
 
 .figureExcluirDoCarrinho {
@@ -327,8 +342,9 @@ aside {
 
 footer {
     width: 100%;
-    height: 80px;
+    height: 75px;
     background-color: rgb(230, 0, 18);
+    bottom: 0;
 }
 
 .divFooter {
@@ -357,11 +373,10 @@ footer {
     font-size: 12px;
     font-weight: 600;
     color: #ffffff;
-
 }
 
 .divIconRedes {
-    height: 50px;
+    height: 30px;
     margin-top: 5px;
 }
 
@@ -372,11 +387,3 @@ footer {
 .imgInstagramLogo {
     height: 30px;
 }
-
-
-
-
-
-
-
-
