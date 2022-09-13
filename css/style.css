@@ -56,6 +56,7 @@ header {
 
 .buttonNav {
     color: #484848;
+    width: 70px;
     background-color: #ffffff;
     font-size: 20px;
 }
@@ -87,10 +88,12 @@ main {
     width: 250px;
     height: 360px;
     display: flex;
+    margin: 15px 5px;
     flex-direction: column;
     border: 2px solid #ffffff;
     border-radius: 10px;
     justify-content: space-between;
+    background-color: #f1f1f1;
 }
 
 .cardVitrine:hover {
@@ -128,16 +131,19 @@ border-radius: 5px;
 .titleName {
     font-size: 20px;
     margin-top: 10px;
+    color: #484848;
 }
 
 .descriptionGame {
     font-size: 14px;
     margin-top: 10px;
+    color: #484848;
 }
 
 .price {
     font-weight: 500;
     margin: 10px 0;
+    color: #484848;
 }
 
 .adicionarAoCarrinho {
@@ -151,79 +157,220 @@ border-radius: 5px;
 
 .adicionarAoCarrinho:hover {
     border: 2px solid rgb(230, 0, 18);
-    font-weight: 900;
+    text-decoration: underline;
 }
 
 aside {
-
+    width: 380px;
+    display: flex;
+    flex-direction: column;
 }
 
 .pesquisaVitrine {
-
+    width: 100%;
+    height: 40px;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 .inputPesquisar {
-
+    width: 280px;
+    font-size: 16px;
+    border-radius: 10px 0 0 10px;
+    padding-left: 20px;
+    background-color: #ebebeb;
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
 }
 
 .btnPesquisar {
+    width: 100px;
+    border-radius: 0 10px 10px 0;
+    color: #ffffff;
+    font-size: 14px;
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    background-color: rgb(230, 0, 18);
+}
 
+.btnPesquisar:hover {
+    font-weight: 700;
+    text-decoration: underline;
+    border: 1px solid rgb(230, 0, 18);
 }
 
 .h2CarrinhoDeCompras {
-
+    width: 100%;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 8px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(230, 0, 18);
+    text-align: center;
 }
 
 .ulCarrinho {
-
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ebebeb;
 }
 
 .liCarrinho {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding:5px 10px;
+    margin: 10px 0;
+    background-color: #dddcdc;
+    border-radius: 10px;
 
 }
 
 .figureImgCarrinho {
-
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .imgCarrinho {
-
+    width: 100%;
+    border-radius: 5px 0 0 5px;
 }
 
 .titleGameCarrinho {
-
+    width: 150px;
+    font-size: 12px;
+    padding: 0 10px;
 }
 
 .priceGameCarrinho {
+    font-size: 12px;
+    padding: 0 10px;
+}
 
+.figureExcluirDoCarrinho {
+    width: 15px;
+    height: 15px;
+}
+
+.lixeiraCarrinho {
+    width: 100%;
+    height: 100%;
+}
+
+.carrinhoVazio {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    background-color: rgb(230, 0, 18);
+    border-radius: 0 0 10px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.dadosCarrinho {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    background-color: rgb(230, 0, 18);
+    border-radius: 0 0 10px 10px;
+}
+
+.countItensCarrinho {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.totalCarrinho {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.finalizarCompra {
+    font-size: 15px;
+    font-weight: 600;
+    color: #484848;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 2px solid rgb(230, 0, 18);
+}
+
+.finalizarCompra:hover {
+    border: 1px solid rgb(230, 0, 18);
+    color: rgb(230, 0, 18);
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(230, 0, 18);
+}
+
+.divFooter {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    justify-content: space-between;
 }
 
 .figureFooter {
-
+    width: 200px;
 }
 
 .logoFooter {
-
+    width: 100%;
 }
 
 .divRedes {
-
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .h4Redes {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
 
 }
 
 .divIconRedes {
-
+    height: 50px;
+    margin-top: 5px;
 }
 
 .imgFacebookLogo {
-
+    height: 30px;
 }
 
 .imgInstagramLogo {
-
+    height: 30px;
 }
 
 
