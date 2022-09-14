@@ -2,6 +2,8 @@ let listaTemp = [];
 
 let carrinho = [];
 
+let listaFiltrada = [];
+
 const tagUl = document.querySelector('.ulVitrine');
 
 const tagUlCarrinho = document.querySelector('.ulCarrinho');
@@ -15,15 +17,6 @@ const tagSpanCountItensCarrinho = document.querySelector('.countItensCarrinho');
 const tagSpanTotalCarrinho = document.querySelector('.totalCarrinho');
 
 montaVitrine(games, tagUl);
-
-function separaGames(lista, chave){
-    for (let i = 0; i < lista.length; i++) {
-        let jogo = lista[i];
-        if (jogo.tag[0].toLowerCase() === chave.toLowerCase()){
-            listaTemp.push(jogo);
-        }
-    }
-}
 
 function montaVitrine(lista, referenciaHtml){
     for (let i = 0; i < lista.length; i++) {
@@ -89,7 +82,12 @@ btnAdicionarAoCarrinho.addEventListener('click', function(event){
     let idProdutoVitrine = event.target.id;
     for (let i = 0; i < games.length; i++){
         if (games[i].id == idProdutoVitrine){
-            carrinho.push(games[i]);
+            let busca = repetidosCarrinho(games[i].id);
+            if (busca == 0){
+                carrinho.push(games[i]);
+            }else {
+                alert('Já está no carrinho!')
+            }
         }
     }
     limpaCarrinho();
@@ -140,12 +138,12 @@ function quantidadeETotal(){
 function montaCarrinho(referenciaHtml){
     for (let i = 0; i < carrinho.length; i++) {
         let itemCarrinho = carrinho[i];
-        let cardCarrinhoMontado = montacardCarrinho(itemCarrinho);
+        let cardCarrinhoMontado = montaCardCarrinho(itemCarrinho);
         referenciaHtml.appendChild(cardCarrinhoMontado);
     }
 }
 
-function montacardCarrinho(produto){
+function montaCardCarrinho(produto){
     let itemCarrinhoId = produto.id;
     let itemCarrinhoImg = produto.img;
     let itemCarrinhoNome = produto.gameName;
@@ -187,6 +185,52 @@ function montacardCarrinho(produto){
     return tagLiCarrinho;
 }
 
+function repetidosCarrinho(id){
+    let count = 0;
+    let ocorrencia = 0;
+    for (i = 0; i < carrinho.length; i++){
+        if (carrinho[i].id === id){
+            count++;
+        }
+    }
+    ocorrencia = count;
+    count = 0;
+    return ocorrencia;
+}
 
+function separaGames(lista, chave){
+    for (let i = 0; i < lista.length; i++) {
+        let jogo = lista[i];
+        if (jogo.tag[0].toLowerCase() === chave.toLowerCase()){
+            listaFiltrada.push(jogo);
+        }
+    }
+}
 
+const btnNav = document.querySelector('.navHeader');
 
+btnNav.addEventListener('click', function(event){
+    let btnId = event.target.id;
+    if (btnId === 'Todos'){
+        tagUl.innerHTML = '';
+        montaVitrine(games, tagUl);
+    }
+    if (btnId === 'Mario'){
+        listaFiltrada = [];
+        separaGames(games, 'Mario')
+        tagUl.innerHTML = '';
+        montaVitrine(listaFiltrada, tagUl);
+    }
+    if (btnId === 'Zelda'){
+        listaFiltrada = [];
+        separaGames(games, 'Zelda')
+        tagUl.innerHTML = '';
+        montaVitrine(listaFiltrada, tagUl);
+    }
+    if (btnId === 'Pokemon'){
+        listaFiltrada = [];
+        separaGames(games, 'Pokemon')
+        tagUl.innerHTML = '';
+        montaVitrine(listaFiltrada, tagUl);
+    }
+});
