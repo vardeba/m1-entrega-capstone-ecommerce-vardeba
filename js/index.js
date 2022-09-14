@@ -9,7 +9,7 @@ let produto = [
     }
 ];
 
-let listaFiltrada = [];
+let listaTemp = [];
 
 let carrinho = [];
 
@@ -70,7 +70,7 @@ function montaCardVitrine(produto){
     
     const tagH4 = document.createElement('h4');
     tagH4.classList.add('price');
-    tagH4.innerText = `R$ ${produtoPrice}`;
+    tagH4.innerText = `R$ ${produtoPrice.toLocaleString('pt-br', {minimumFractionDigits: 2})}`;
     
     const tagButton = document.createElement('button');
     tagButton.classList.add('adicionarAoCarrinho');
@@ -84,10 +84,90 @@ function montaCardVitrine(produto){
     return tagLi;
 }
 
-// document.addEventListener('click', )
+const btnAdicionarAoCarrinho = document.querySelector('.ulVitrine');
 
+const tagUlCarrinho = document.querySelector('.ulCarrinho');
 
+btnAdicionarAoCarrinho.addEventListener('click', function(event){
+    let idProdutoVitrine = event.target.id;
+    for (let i = 0; i < games.length; i++){
+        if (games[i].id == idProdutoVitrine){
+            carrinho.push(games[i]);
+        }
+    }
+    limpaCarrinho();
+    montaCarrinho(tagUlCarrinho);
+});
 
+tagUlCarrinho.addEventListener('click', function(event){
+    let idProdutoCarrinho = event.target.id;
+    for (let i = 0; i < carrinho.length; i++){
+        if (carrinho[i].id != idProdutoCarrinho){
+            listaTemp.push(carrinho[i]);
+        }
+    }
+    limpaCarrinho();
+    atualizaCarrinho();
+    montaCarrinho(tagUlCarrinho);
+});
+
+function limpaCarrinho(){
+    tagUlCarrinho.innerHTML = '';
+}
+
+function atualizaCarrinho(){
+    carrinho = listaTemp;
+}
+
+function montaCarrinho(referenciaHtml){
+    for (let i = 0; i < carrinho.length; i++) {
+        let itemCarrinho = carrinho[i];
+        let cardCarrinhoMontado = montacardCarrinho(itemCarrinho);
+        referenciaHtml.appendChild(cardCarrinhoMontado);
+    }
+}
+
+function montacardCarrinho(produto){
+    let itemCarrinhoId = produto.id;
+    let itemCarrinhoImg = produto.img;
+    let itemCarrinhoNome = produto.gameName;
+    let itemCarrinhoPreco = produto.price;
+    
+    const tagLiCarrinho = document.createElement('li');
+    tagLiCarrinho.classList.add('liCarrinho');
+    
+    const tagFigureCarrinho = document.createElement('figure');
+    tagFigureCarrinho.classList.add('figureImgCarrinho');
+    
+    const tagImgCarrinho = document.createElement('img');
+    tagImgCarrinho.classList.add('imgCarrinho');
+    tagImgCarrinho.setAttribute('src', `${itemCarrinhoImg}`);
+    tagImgCarrinho.setAttribute('alt', `Imagem do jogo ${itemCarrinhoNome}`);
+    
+    const tagH3Carrinho = document.createElement('h3');
+    tagH3Carrinho.classList.add('titleGameCarrinho');
+    tagH3Carrinho.innerText = `${itemCarrinhoNome}`;
+    
+    const tagH4Carrinho = document.createElement('h4');
+    tagH4Carrinho.classList.add('priceGameCarrinho');
+    tagH4Carrinho.innerText = `R$ ${itemCarrinhoPreco.toLocaleString('pt-br', {minimumFractionDigits: 2})}`;
+
+    const tagFigureLixeiraCarrinho = document.createElement('figure');
+    tagFigureLixeiraCarrinho.classList.add('figureExcluirDoCarrinho');
+    
+    const tagImgLixeiraCarrinho = document.createElement('img');
+    tagImgLixeiraCarrinho.classList.add('lixeiraCarrinho');
+    tagImgLixeiraCarrinho.setAttribute('id', `${itemCarrinhoId}`);
+    tagImgLixeiraCarrinho.setAttribute('src', './img/lixeira.png');
+    tagImgLixeiraCarrinho.setAttribute('alt', 'Lixeira');
+    tagImgLixeiraCarrinho.setAttribute('title', 'Remover do carrinho');
+
+    tagFigureLixeiraCarrinho.appendChild(tagImgLixeiraCarrinho);
+    tagFigureCarrinho.appendChild(tagImgCarrinho);
+    tagLiCarrinho.append(tagFigureCarrinho, tagH3Carrinho, tagH4Carrinho, tagFigureLixeiraCarrinho);
+
+    return tagLiCarrinho;
+}
 
 
 

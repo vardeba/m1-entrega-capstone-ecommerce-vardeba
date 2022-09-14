@@ -387,3 +387,9 @@ footer {
 .imgInstagramLogo {
     height: 30px;
 }
+
+.escondido {
+    display: none;
+}
+
+
