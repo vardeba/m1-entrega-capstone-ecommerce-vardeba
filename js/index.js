@@ -1,19 +1,18 @@
-let produto = [
-    {
-        id: 1,
-        img: "../img/zelda_breath_01.webp",
-        nameGame: "The Legend of Zelda: Breath of the Wild",
-        description: "O novo jogo da famosa série que veio para romper barreiras.",
-        price: 299.00,
-        tag: ["Zelda"]
-    }
-];
-
 let listaTemp = [];
 
 let carrinho = [];
 
 const tagUl = document.querySelector('.ulVitrine');
+
+const tagUlCarrinho = document.querySelector('.ulCarrinho');
+
+const tagPCarrinhoVazio = document.querySelector('.carrinhoVazio');
+
+const tagSectionDadosCarrinho = document.querySelector('.dadosCarrinho');
+
+const tagSpanCountItensCarrinho = document.querySelector('.countItensCarrinho');
+
+const tagSpanTotalCarrinho = document.querySelector('.totalCarrinho');
 
 montaVitrine(games, tagUl);
 
@@ -21,7 +20,7 @@ function separaGames(lista, chave){
     for (let i = 0; i < lista.length; i++) {
         let jogo = lista[i];
         if (jogo.tag[0].toLowerCase() === chave.toLowerCase()){
-            listaFiltrada.push(jogo);
+            listaTemp.push(jogo);
         }
     }
 }
@@ -86,8 +85,6 @@ function montaCardVitrine(produto){
 
 const btnAdicionarAoCarrinho = document.querySelector('.ulVitrine');
 
-const tagUlCarrinho = document.querySelector('.ulCarrinho');
-
 btnAdicionarAoCarrinho.addEventListener('click', function(event){
     let idProdutoVitrine = event.target.id;
     for (let i = 0; i < games.length; i++){
@@ -97,6 +94,7 @@ btnAdicionarAoCarrinho.addEventListener('click', function(event){
     }
     limpaCarrinho();
     montaCarrinho(tagUlCarrinho);
+    quantidadeETotal();
 });
 
 tagUlCarrinho.addEventListener('click', function(event){
@@ -109,6 +107,7 @@ tagUlCarrinho.addEventListener('click', function(event){
     limpaCarrinho();
     atualizaCarrinho();
     montaCarrinho(tagUlCarrinho);
+    quantidadeETotal();
 });
 
 function limpaCarrinho(){
@@ -116,7 +115,26 @@ function limpaCarrinho(){
 }
 
 function atualizaCarrinho(){
+    carrinho = [];
     carrinho = listaTemp;
+    listaTemp = [];
+}
+
+function quantidadeETotal(){
+    let somaCarrinho = 0;
+    let quantidadeCarrinho = carrinho.length;
+    if (carrinho != ''){
+        tagPCarrinhoVazio.classList.add('escondido');
+        tagSectionDadosCarrinho.classList.remove('escondido');
+        for (let i = 0; i < carrinho.length; i++) {
+            somaCarrinho += carrinho[i].price;
+        }
+    }else{
+        tagPCarrinhoVazio.classList.remove('escondido');
+        tagSectionDadosCarrinho.classList.add('escondido');
+    }
+    tagSpanCountItensCarrinho.innerText = `Quantidade: ${quantidadeCarrinho}`;
+    tagSpanTotalCarrinho.innerText = `Total: R$ ${somaCarrinho.toLocaleString('pt-br', {minimumFractionDigits: 2})}`
 }
 
 function montaCarrinho(referenciaHtml){
